@@ -28,5 +28,5 @@ A simple Angular weather application that allows searching for cities, displayin
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
-   cd <project-folder>
+   git clone https://github.com/stamat1s/weather-dashboard.git
+   cd weather-dashboard
