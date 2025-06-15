@@ -20,7 +20,7 @@ A simple Angular weather application that allows searching for cities, displayin
 - Angular (Standalone Components, RxJS)
 - OpenWeatherMap API for weather data
 - TypeScript, HTML, SCSS
-- IndexedDB/localStorage for offline cache
+- LocalStorage for offline cache
 
 ---
 
