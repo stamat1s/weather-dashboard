@@ -70,6 +70,49 @@
   }
 }
 
+.weather-container {
+  padding: 2rem;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+
+  &.sunny-day {
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    color: #333;
+  }
+
+  &.clear-night {
+    background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+  }
+
+  &.rainy-day {
+    background: linear-gradient(135deg, #667db6 0%, #0082c8 100%);
+  }
+
+  &.rainy-night {
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+  }
+
+  &.cloudy-day {
+    background: linear-gradient(135deg, #bdc3c7 0%, #2c3e50 100%);
+    color: #222;
+  }
+
+  &.cloudy-night {
+    background: linear-gradient(135deg, #232526 0%, #1c1c1c 100%);
+  }
+
+  &.default-day {
+    background: #87ceeb;
+    color: #333;
+  }
+
+  &.default-night {
+    background: #1b2735;
+  }
+}
+
+
 /* Responsive */
 @media (max-width: 500px) {
   .weather-search {

@@ -35,4 +35,25 @@ export class WeatherComponent {
       }
     });
   }
+
+  getWeatherClass(): string {
+  if (!this.weatherData) return '';
+
+  const weatherMain = this.weatherData.weather[0]?.main.toLowerCase(); // π.χ. 'rain', 'clear', 'clouds'
+  const icon = this.weatherData.weather[0]?.icon || '';
+
+  // icon έχει μορφή πχ '01d' (μέρα) ή '01n' (νύχτα)
+  const isDay = icon.includes('d');
+
+  if (weatherMain.includes('rain')) {
+    return isDay ? 'rainy-day' : 'rainy-night';
+  } else if (weatherMain.includes('clear')) {
+    return isDay ? 'sunny-day' : 'clear-night';
+  } else if (weatherMain.includes('cloud')) {
+    return isDay ? 'cloudy-day' : 'cloudy-night';
+  }
+
+  return isDay ? 'default-day' : 'default-night';
+}
+
 }

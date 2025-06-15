@@ -5,9 +5,9 @@
 
 <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
 
-<div *ngIf="weatherData" class="weather-result">
+<div *ngIf="weatherData" [ngClass]="getWeatherClass()" class="weather-container">
   <h2>{{ weatherData.name }}</h2>
-  <p>Θερμοκρασία: {{ (weatherData?.main?.temp - 273.15) | number:'1.0-1' }} °C</p>
+  <p>Θερμοκρασία: {{ (weatherData?.main?.temp) | number:'1.0-1' }} °C</p>
   <p>Υγρασία: {{ weatherData?.main?.humidity  }}%</p>
   <p>Καιρός: {{ weatherData?.weather[0]?.description }}</p>
   <img
@@ -16,3 +16,5 @@
   alt="weather icon"
 />
 </div>
+
+
