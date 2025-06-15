@@ -1,4 +1,4 @@
-<div class="weather-search">
+<div class="weather-search"  >
   <input type="text" [(ngModel)]="cityName" placeholder="Πληκτρολόγησε πόλη" />
   <button (click)="searchCity()">Αναζήτηση</button>
 </div>
@@ -7,8 +7,8 @@
 
 <div *ngIf="weatherData" class="weather-result">
   <h2>{{ weatherData.name }}</h2>
-  <p>Θερμοκρασία: {{ (weatherData?.main?.temp - 273.15) | number:'1.0-1' || undefined}} °C</p>
-  <p>Υγρασία: {{ weatherData?.main?.humidity || undefined }}%</p>
-  <p>Καιρός: {{ weatherData?.weather[0]?.description || undefined}}</p>
+  <p>Θερμοκρασία: {{ (weatherData?.main?.temp - 273.15) | number:'1.0-1' }} °C</p>
+  <p>Υγρασία: {{ weatherData?.main?.humidity  }}%</p>
+  <p>Καιρός: {{ weatherData?.weather[0]?.description }}</p>
   <!-- <img [src]="'https://openweathermap.org/img/wn/' + weatherData.weather[0]?.icon + '@2x.png'" alt="weather icon" /> -->
 </div>

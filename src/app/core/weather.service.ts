@@ -25,7 +25,7 @@ export interface WeatherData {
 export class WeatherService {
 
   private baseUrl = 'https://api.openweathermap.org/data/2.5/weather';
-  private apiKey = '';  // Βάλε εδώ την δική σου API key
+  private apiKey = 'ea986df61e80b8186a9c99410db145f7';  // Βάλε εδώ την δική σου API key
 
   constructor(private http: HttpClient) {}
 

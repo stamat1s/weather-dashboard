@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { WeatherService, WeatherData } from '../core/weather.service';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common'; 
 
 @Component({
   standalone: true,
@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 })
 export class WeatherComponent {
   cityName: string = '';             // Για το input
-  weatherData?: WeatherData;         // Αποθηκεύουμε τα δεδομένα καιρού
+  weatherData: any = {};         // Αποθηκεύουμε τα δεδομένα καιρού
   errorMessage: string = '';
 
   constructor(private weatherService: WeatherService) {}
