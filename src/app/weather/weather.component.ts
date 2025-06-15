@@ -18,23 +18,38 @@ export class WeatherComponent {
   constructor(private weatherService: WeatherService) {}
 
   searchCity() {
-    if (!this.cityName.trim()) {
-      this.errorMessage = 'You have to enter city.';
+  if (!this.cityName.trim()) {
+    this.errorMessage = 'You have to enter city.';
+    return;
+  }
+
+  this.errorMessage = '';
+
+  // Αν δεν έχει σύνδεση
+  if (!navigator.onLine) {
+    const cached = localStorage.getItem(this.cityName.toLowerCase());
+    if (cached) {
+      this.weatherData = JSON.parse(cached);
+      this.errorMessage = 'Εμφανίζονται αποθηκευμένα δεδομένα (offline)';
+      return;
+    } else {
+      this.errorMessage = 'Δεν υπάρχει σύνδεση και δεν υπάρχουν αποθηκευμένα δεδομένα.';
       return;
     }
-
-    this.errorMessage = '';
-
-    this.weatherService.getWeather(this.cityName).subscribe({
-      next: (data) => {
-        this.weatherData = data;
-      },
-      error: (err) => {
-        this.errorMessage = 'City not found or network error.';
-        this.weatherData = undefined;
-      }
-    });
   }
+
+  // Online, κανονικό fetch
+  this.weatherService.getWeather(this.cityName).subscribe({
+    next: (data) => {
+      this.weatherData = data;
+      localStorage.setItem(this.cityName.toLowerCase(), JSON.stringify(data)); // cache αποθήκευση
+    },
+    error: (err) => {
+      this.errorMessage = 'City not found or network error.';
+      this.weatherData = undefined;
+    }
+  });
+}
 
   getWeatherClass(): string {
   if (!this.weatherData) return '';
