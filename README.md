@@ -31,13 +31,13 @@ A simple Angular weather application that allows searching for cities, displayin
    git clone https://github.com/stamat1s/weather-dashboard.git
    cd weather-dashboard
 2. Install dependencies:
-3. ```bash
+   ```bash
    npm install
-4. Configure your OpenWeatherMap API key:
+3. Configure your OpenWeatherMap API key:
    - Register at OpenWeatherMap to get your API key.
    - Open the file `src/app/core/weather.service.ts` (or wherever your weather service is).
    - Replace the `apiKey` variable’s value with your own API key.
-5. Run the development server:
+4. Run the development server:
    ```bash
    ng serve
-6. Open your browser and navigate to `http://localhost:4200`.
+5. Open your browser and navigate to `http://localhost:4200`.
