@@ -11,7 +11,7 @@ A simple Angular weather application that allows searching for cities, displayin
 - Favorites list for quick access.
 - Dynamic styling based on weather data (e.g., change color depending on day/night or rain/sun).
 - Responsive design for mobile and desktop.
-- Offline caching using IndexedDB/localStorage for access to the latest data without an internet connection.
+- Offline caching using localStorage for access to the latest data without an internet connection.
 
 ---
 
