@@ -10,5 +10,9 @@
   <p>Θερμοκρασία: {{ (weatherData?.main?.temp - 273.15) | number:'1.0-1' }} °C</p>
   <p>Υγρασία: {{ weatherData?.main?.humidity  }}%</p>
   <p>Καιρός: {{ weatherData?.weather[0]?.description }}</p>
-  <!-- <img [src]="'https://openweathermap.org/img/wn/' + weatherData.weather[0]?.icon + '@2x.png'" alt="weather icon" /> -->
+  <img
+  *ngIf="weatherData?.weather && weatherData.weather[0]?.icon"
+  [src]="'https://openweathermap.org/img/wn/' + weatherData.weather[0].icon + '@2x.png'"
+  alt="weather icon"
+/>
 </div>
