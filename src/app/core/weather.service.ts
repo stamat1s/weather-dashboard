@@ -18,7 +18,7 @@ export interface WeatherData {
   };
   dt: number;             // Τρέχον timestamp
 }
-
+//new change
 @Injectable({
   providedIn: 'root'
 })
