@@ -56,4 +56,27 @@ export class WeatherComponent {
   return isDay ? 'default-day' : 'default-night';
 }
 
+favorites: string[] = [];
+
+ngOnInit() {
+  const saved = localStorage.getItem('favorites');
+  this.favorites = saved ? JSON.parse(saved) : [];
+}
+
+addFavorite(city: string) {
+  if (!this.favorites.includes(city)) {
+    this.favorites.push(city);
+    localStorage.setItem('favorites', JSON.stringify(this.favorites));
+  }
+}
+
+removeFavorite(city: string) {
+  this.favorites = this.favorites.filter(c => c !== city);
+  localStorage.setItem('favorites', JSON.stringify(this.favorites));
+}
+
+isFavorite(city: string): boolean {
+  return this.favorites.includes(city);
+}
+
 }

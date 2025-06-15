@@ -6,7 +6,11 @@
 <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
 
 <div *ngIf="weatherData" [ngClass]="getWeatherClass()" class="weather-container">
-  <h2>{{ weatherData.name }}</h2>
+  <h2>{{ weatherData.name }}
+     <button *ngIf="!isFavorite(weatherData.name)" (click)="addFavorite(weatherData.name)">➕ Αγαπημένα</button>
+     <button *ngIf="isFavorite(weatherData.name)" (click)="removeFavorite(weatherData.name)">❌ Αφαίρεση</button>
+
+  </h2>
   <p>Θερμοκρασία: {{ (weatherData?.main?.temp) | number:'1.0-1' }} °C</p>
   <p>Υγρασία: {{ weatherData?.main?.humidity  }}%</p>
   <p>Καιρός: {{ weatherData?.weather[0]?.description }}</p>
@@ -15,6 +19,13 @@
   [src]="'https://openweathermap.org/img/wn/' + weatherData.weather[0].icon + '@2x.png'"
   alt="weather icon"
 />
+</div>
+
+<div *ngIf="favorites.length > 0">
+  <h3>Αγαπημένες Πόλεις</h3>
+  <ul>
+    <li *ngFor="let city of favorites" (click)="cityName=city; searchCity()">{{ city }}</li>
+  </ul>
 </div>
 
 
